@@ -1,0 +1,31 @@
+version: '3.8'
+
+services:
+  api:
+    build:
+      context: ./api
+      # Usa o estágio 'production' do Dockerfile
+      target: production
+    ports:
+      - "3000:3000"
+    # Não há volumes de código, apenas a imagem final otimizada
+    environment:
+      DB_HOST: db
+      DB_USER: user_docker
+      DB_PASSWORD: password_docker
+      DB_NAME: mydatabase
+    depends_on:
+      - db
+
+  db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: user_docker
+      POSTGRES_PASSWORD: password_docker
+      POSTGRES_DB: mydatabase
+    # Volume nomeado para persistência
+    volumes:
+      - db_data:/var/lib/postgresql/data
+
+volumes:
+  db_data:
