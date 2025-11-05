@@ -1,0 +1,16 @@
+{
+  "name": "api-db-container",
+  "version": "1.0.0",
+  "description": "API com conexão a DB via Docker Compose",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "pg": "^8.11.3"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1" 
+  }
+}

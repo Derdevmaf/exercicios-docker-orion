@@ -1,0 +1,14 @@
+version: '3.8'
+services:
+  web:
+    # Faz o build da imagem a partir do Dockerfile no diretório atual
+    build: .
+    # Expõe a porta 3000 do container para a porta 3000 da sua máquina
+    ports:
+      - "3000:3000"
+    # Monta um volume local (opcional, mas útil para desenvolvimento)
+    # Isso permite que você edite o código na sua máquina e veja a mudança no container
+    volumes:
+      - .:/usr/src/app
+      # Opcional: Garante que a pasta node_modules dentro do container não seja sobrescrita pelo volume local
+      - /usr/src/app/node_modules
