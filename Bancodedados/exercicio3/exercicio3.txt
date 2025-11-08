@@ -1,0 +1,17 @@
+# Criar coleção "posts" e inserir o primeiro documento
+db.posts.insertOne({
+  "titulo": "Introdução ao MongoDB",
+  "autor": "John Silva",
+  "conteudo": "O MongoDB é um banco de dados NoSQL orientado a documentos."
+})
+
+# Inserir segundo documento com estrutura diferente (campo extra "tags")
+db.posts.insertOne({
+  "titulo": "Schema Flexível em Ação",
+  "autor": "John Pereira",
+  "conteudo": "Veja como o MongoDB permite campos diferentes no mesmo conjunto de dados.",
+  "tags": ["nosql", "flexivel"]
+})
+
+# Consultar todos os documentos (READ)
+db.posts.find().pretty()

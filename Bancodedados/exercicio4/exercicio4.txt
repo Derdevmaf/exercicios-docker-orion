@@ -1,0 +1,40 @@
+### No MongoDB Compass:
+
+1. Vá até sua coleção `posts`.
+2. Clique no post que deseja editar (por exemplo, “Schema Flexível em Ação”).
+3. Clique em **“UPDATE”** (botão verde acima).
+4. Clique em **“Edit JSON”** e insira o campo `comentarios`.
+
+```json
+{
+  "$set": {
+    "comentarios": [
+      {
+        "autor": "Ana Costa",
+        "mensagem": "Artigo muito útil!",
+        "data": "2025-11-06"
+      },
+      {
+        "autor": "Pedro Lima",
+        "mensagem": "Aprendi bastante sobre MongoDB!",
+        "data": "2025-11-06"
+      }
+    ]
+  }
+}
+```
+
+2. Clique em **“Update”**.
+
+```js
+db.posts.find({ "tags": "nosql" }).pretty()
+```
+Isso retorna todos os posts que possuem `"nosql"` dentro do array `tags`.
+
+
+Passo 3 — Consultar posts de um autor específico
+
+```js
+db.posts.find({ "autor": "John Pereira" }).pretty()
+```
+Isso retorna apenas os documentos cujo campo `autor` é `"John Pereira"`.
